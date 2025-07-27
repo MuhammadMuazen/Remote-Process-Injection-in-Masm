@@ -3,7 +3,7 @@
 Your very typical remote process injection program you know how it goes
 
 ---
-### functions Used in this project:
+### Functions Used in This Project:
 
 1. [OpenProcess](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess)
 
