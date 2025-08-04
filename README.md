@@ -64,6 +64,4 @@ HANDLE CreateRemoteThread(
 );
 ```
 ---
-### Note
 
-Thee is still some problems with the stack alignemnt I will fix it later. It causes the remote process to crash but the shellcode runs perfectly.

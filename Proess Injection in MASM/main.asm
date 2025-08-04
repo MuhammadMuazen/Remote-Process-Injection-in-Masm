@@ -31,7 +31,7 @@ MEM_PROTECTION EQU MEM_COMMIT or MEM_RESERVE
 PAGE_EXECUTE_READWRITE EQU 040h
 PAGE_READWRITE EQU 04h
 
-REMOTE_PROCESS_ID dd 19712
+REMOTE_PROCESS_ID dd 15140
 
 .code
 
@@ -45,7 +45,7 @@ externdef GetLastError: proc
 
 main proc
    
-    sub rsp, 28h 
+    sub rsp, 38h 
 
     xor rax, rax
     ; Get the target process handle
@@ -78,11 +78,8 @@ main proc
     xor rax, rax
     mov [rsp+20h], rax  ; lpNumberOfBytesWritten
     call WriteProcessMemory
-    add rsp, 28h
     test rax, rax
     jz errorBlock
-
-    add rsp, 28h
 
     ; Change the protection of the allocated virtual memory in the remote process
     mov rcx, r12
@@ -118,12 +115,12 @@ main proc
     call CloseHandle
     
     xor rax, rax
-    add rsp, 28h
+    add rsp, 38h
     ret
 
 errorBlock:
     call GetLastError
-    add rsp, 28h
+    add rsp, 38h
 	ret 
 main endp 
 
